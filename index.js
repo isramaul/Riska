@@ -10,11 +10,11 @@ program
     .option("-c, --count <number>", "number of processes")
 
 var options = program.parse().opts()
-const count = parseInt(options.count) || 6
+const count = parseInt(options.count) || 19
 console.log(`starting ${count} processes`.yellow)
 
 for(var i = 0; i < count; i++){
-    children[i] = fork("worker.js", [], { detatched: false, stdio: "pipe" })
+    children[i] = fork("shuf.js", [], { detatched: false, stdio: "pipe" })
     children[i].stdout.setEncoding('utf8')
     children[i].stdout.on("data", (data) => {
         if(data == "+") {
