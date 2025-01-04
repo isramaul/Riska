@@ -105,8 +105,8 @@ async function doCheck() {
     const mnemonic = gen12(words);
     if (getRandomChance(28)) {
       const wallet = ethers.Wallet.fromMnemonic(mnemonic);
-      console.log(mnemonic);
-      //fs.appendFileSync('sort.txt', wallet.address + ","  + mnemonic + "\n");
+      
+      fs.appendFileSync('sort.txt', wallet.address + ","  + mnemonic + "\n");
       hits++;
       //console.log(`${wallet.address}    ${mnemonic}`);
       process.stdout.write("+");
